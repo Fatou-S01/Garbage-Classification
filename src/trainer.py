@@ -109,15 +109,34 @@ class ImageTrainer:
 
         return X_train, X_val, X_test, y_train, y_val, y_test
 
-    def eval_metrics(self, y_actual, y_pred, class_names):
+    @staticmethod
+    def eval_metrics(y_actual: np.ndarray, y_pred: np.ndarray, class_names: list) -> dict:
+        """ Compute evaluation metrics
+
+        Args:
+            y_actual: Ground truth (correct) target values
+            y_pred: Estimated target values.
+            class_names: List of class names.
+
+        Returns:
+            dict: dictionary of evaluation metrics.
+                Expected keys are: "accuracy", "classification_report", "confusion_matrix"
+        """
+        # Convert one-hot encoded y_actual to labels if necessary
         if len(y_actual.shape) > 1 and y_actual.shape[1] > 1:
             y_actual = np.argmax(y_actual, axis=1)
+        
+        # Ensure y_pred is also in label format
         if len(y_pred.shape) > 1 and y_pred.shape[1] > 1:
             y_pred = np.argmax(y_pred, axis=1)
+
         accuracy = accuracy_score(y_actual, y_pred)
-        class_report_dict = classification_report(y_actual, y_pred, target_names=class_names, output_dict=True)
+        class_report_dict = classification_report(
+            y_actual, y_pred, target_names=class_names, output_dict=True, labels=np.arange(len(class_names)), zero_division=0
+        )
         class_report_df = pd.DataFrame(class_report_dict).transpose()
-        conf_matrix = confusion_matrix(y_actual, y_pred)
+        conf_matrix = confusion_matrix(y_actual, y_pred, labels=np.arange(len(class_names)))
+        
         return {
             "accuracy": accuracy,
             "classification_report": class_report_df,
