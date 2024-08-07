@@ -61,18 +61,19 @@ def load_data(is_downloaded):
     dataset_name = 'asdasdasasdas/garbage-classification'
     current_directory = os.getcwd()
     parent_directory = os.path.dirname(current_directory)
-    data_path = os.path.join(parent_directory, 'data', 'Garbage_classification','Garbage_classification')
+    data_path = os.path.join(parent_directory, 'data','Garbage classification', 'Garbage classification')
+    downloaded_path = os.path.join(parent_directory,'data')
     image_list = []
     label_list =  []
     
     if(is_downloaded):
       image_list, label_list = read_data(data_path)
     else:
-      download_kaggle_dataset(dataset_name, data_path)
+      download_kaggle_dataset(dataset_name, downloaded_path)
       image_list, label_list = read_data(data_path)
-      
-    logger.info(f"Dataset lo load: {dataset_name}")
+
+    logger.info(f"Directories: {downloaded_path},{parent_directory}")
+    logger.info(f"Dataset lo load: {data_path}")
     logger.info(f"Data shape: Images: {len(image_list)}, Labels: {len(label_list)}")
     
     return image_list, label_list
-                

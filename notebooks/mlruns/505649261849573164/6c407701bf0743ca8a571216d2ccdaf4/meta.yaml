@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/ext_lagnane005147/Documents/Cours/Garbage-Classification/notebooks/mlruns/505649261849573164/6c407701bf0743ca8a571216d2ccdaf4/artifacts
+end_time: 1723065443205
+entry_point_name: ''
+experiment_id: '505649261849573164'
+lifecycle_stage: active
+run_id: 6c407701bf0743ca8a571216d2ccdaf4
+run_name: ResNet50_20240807_211659
+run_uuid: 6c407701bf0743ca8a571216d2ccdaf4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723065419716
+status: 3
+tags: []
+user_id: ext_lagnane005147

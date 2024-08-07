@@ -1,0 +1,7 @@
+,cardboard,glass,metal,paper,plastic,trash
+cardboard,5,14,18,25,31,0
+glass,0,26,33,18,24,0
+metal,4,11,40,11,8,0
+paper,1,18,39,27,37,0
+plastic,3,7,14,6,58,1
+trash,0,5,9,4,9,0

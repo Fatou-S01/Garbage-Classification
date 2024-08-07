@@ -20,22 +20,30 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
 from tensorflow.keras.utils import to_categorical
 from scikeras.wrappers import KerasClassifier
-from lazypredict.Supervised import LazyClassifier
 from tensorflow.keras.applications import ResNet50
 from tensorflow.keras.applications.resnet50 import preprocess_input
 from tensorflow.keras.layers import Dense, GlobalAveragePooling2D
 from tensorflow.keras.models import Model, load_model
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.optimizers import Adam
+from src.utils import *
 
 
+
+# def resize_images(images, target_size=(128, 128)):
+#     resized_images = []
+#     for img in images:
+#         img = Image.fromarray((img * 255).astype(np.uint8)).resize(target_size)
+#         img_array = np.array(img) / 255.0
+#         resized_images.append(img_array)
+#     return np.array(resized_images)
 
 def resize_images(images, target_size=(128, 128)):
+    """Resize images to the target size using cv2."""
     resized_images = []
     for img in images:
-        img = Image.fromarray((img * 255).astype(np.uint8)).resize(target_size)
-        img_array = np.array(img) / 255.0
-        resized_images.append(img_array)
+        img_resized = cv2.resize(img, target_size)
+        resized_images.append(img_resized)
     return np.array(resized_images)
 
 class ImageTrainer:
@@ -83,6 +91,21 @@ class ImageTrainer:
         X_train = resize_images(X_train, target_size=self.target_size)
         X_val = resize_images(X_val, target_size=self.target_size)
         X_test = resize_images(X_test, target_size=self.target_size)
+
+        # Create directories
+        data_split_dir = os.path.join(os.path.dirname(os.getcwd()), 'data_split')
+        train_dir = os.path.join(data_split_dir, 'train')
+        val_dir = os.path.join(data_split_dir, 'val')
+        test_dir = os.path.join(data_split_dir, 'test')
+
+        os.makedirs(train_dir, exist_ok=True)
+        os.makedirs(val_dir, exist_ok=True)
+        os.makedirs(test_dir, exist_ok=True)
+
+        # Save images
+        save_images(X_train, y_train, train_dir)
+        save_images(X_val, y_val, val_dir)
+        save_images(X_test, y_test, test_dir)
 
         return X_train, X_val, X_test, y_train, y_val, y_test
 

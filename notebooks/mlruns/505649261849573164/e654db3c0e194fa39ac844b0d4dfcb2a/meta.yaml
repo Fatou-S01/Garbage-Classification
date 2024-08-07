@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/ext_lagnane005147/Documents/Cours/Garbage-Classification/notebooks/mlruns/505649261849573164/e654db3c0e194fa39ac844b0d4dfcb2a/artifacts
+end_time: 1723064308438
+entry_point_name: ''
+experiment_id: '505649261849573164'
+lifecycle_stage: active
+run_id: e654db3c0e194fa39ac844b0d4dfcb2a
+run_name: InceptionV3_20240807_205805
+run_uuid: e654db3c0e194fa39ac844b0d4dfcb2a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723064285210
+status: 3
+tags: []
+user_id: ext_lagnane005147
