@@ -1,0 +1,18 @@
+artifact_path: model_ResNet50
+flavors:
+  keras:
+    data: data
+    keras_backend: tensorflow
+    keras_version: 3.4.1
+    save_exported_model: false
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.keras
+    python_version: 3.12.4
+mlflow_version: 2.15.1
+model_size_bytes: 120238602
+model_uuid: f9399089bec24866a7f557ccf2e6abc7
+run_id: 6c407701bf0743ca8a571216d2ccdaf4
+utc_time_created: '2024-08-07 21:16:59.876495'
