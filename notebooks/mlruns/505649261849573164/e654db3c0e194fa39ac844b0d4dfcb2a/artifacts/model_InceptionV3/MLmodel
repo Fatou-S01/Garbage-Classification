@@ -1,0 +1,18 @@
+artifact_path: model_InceptionV3
+flavors:
+  keras:
+    data: data
+    keras_backend: tensorflow
+    keras_version: 3.4.1
+    save_exported_model: false
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.keras
+    python_version: 3.12.4
+mlflow_version: 2.15.1
+model_size_bytes: 113551942
+model_uuid: 47df16e67ae8439f9d5bb4353405ad5f
+run_id: e654db3c0e194fa39ac844b0d4dfcb2a
+utc_time_created: '2024-08-07 20:58:05.409734'
