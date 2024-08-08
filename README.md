@@ -54,6 +54,18 @@ Le modèle a été entraîné sur un ensemble de données comprenant des images 
 4. Configurez la clé API de Kaggle :
     - Obtenez votre fichier `kaggle.json` à partir de votre compte Kaggle.
     - Placez-le dans le répertoire `~/.kaggle/` (Linux/MacOS) ou `%USERPROFILE%\.kaggle\` (Windows).
+  
+
+## Utilisation
+1. Téléchargez les données et préparez-les :
+    ```bash
+    python src/make_dataset.py
+    ```
+
+2. Utilisez le script de classification des déchets pour entraîner et évaluer différents modèles :
+    ```bash
+    ./run_garbage_classification.sh
+    ```
       
 
 ## Tests
