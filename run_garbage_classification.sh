@@ -16,7 +16,7 @@ mkdir -p ${LOGS_DIR}
 echo "================================== Start garbage classification training ====================================="
 
 # Execute the notebook/script using papermill
-papermill C:\\Users\\ass_s\\OneDrive\\Documenti\\Garbage_Classification\\notebooks\\garbage_classification.ipynb \
+papermill notebooks\\garbage_classification.ipynb \
 "${LOGS_DIR}/${EXECUTION_DATE}-garbage-classification-artifact.ipynb" \
 -k original_venv --report-mode --log-output --no-progress-bar
 

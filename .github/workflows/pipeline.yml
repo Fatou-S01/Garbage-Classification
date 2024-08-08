@@ -1,0 +1,49 @@
+name: CI/CD Pipeline
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pytest flake8
+
+    - name: Run linting
+      run: flake8 .
+
+    - name: Run tests
+      run: pytest
+
+    - name: Build Docker image
+      run: docker build -t garbage-classification-api .
+
+    - name: Test Flask app startup
+      run: |
+        docker run -d -p 5000:5000 garbage-classification-api
+        sleep 5
+        curl http://localhost:5000 || exit 1
+
+    - name: Save Docker image
+      run: |
+        docker save garbage-classification-api > garbage-classification-api.tar
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: docker-image
+        path: garbage-classification-api.tar

@@ -11,3 +11,6 @@ scikit_learn
 seaborn
 tensorflow
 mlflow
+flask
+flask_restful
+flask_cors
