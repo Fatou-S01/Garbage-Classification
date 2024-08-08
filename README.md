@@ -35,7 +35,7 @@ Le modèle a été entraîné sur un ensemble de données comprenant des images 
 ## Installation
 1. Clonez le dépôt du projet :
     ```bash
-    git clone https://github.com/votre_nom_d_utilisateur/garbage_classification.git
+    git clone https://github.com/Fatou-S01/garbage_classification.git
     cd garbage_classification
     ```
 
