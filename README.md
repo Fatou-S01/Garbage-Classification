@@ -54,8 +54,21 @@ Le modèle a été entraîné sur un ensemble de données comprenant des images 
 4. Configurez la clé API de Kaggle :
     - Obtenez votre fichier `kaggle.json` à partir de votre compte Kaggle.
     - Placez-le dans le répertoire `~/.kaggle/` (Linux/MacOS) ou `%USERPROFILE%\.kaggle\` (Windows).
+      
 
-## Utilisation
+## Utilisation avec Docker
+1. Construisez l'image Docker :
+    ```bash
+    docker build -t garbage_classification:latest .
+    ```
+
+2. Exécutez le conteneur Docker :
+    ```bash
+    docker run -it --rm -v $(pwd):/app garbage_classification:latest
+    ```
+
+
+## Utilisation sans Docker
 1. Téléchargez les données et préparez-les :
     ```bash
     python src/make_dataset.py
