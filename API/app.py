@@ -7,7 +7,7 @@ from flask_cors import CORS
 import os
 import os.path
 from os import path
-from functions import save_base64_image
+from functions import save_base64_image, predict_image
 
   
 app = Flask(__name__)
@@ -27,9 +27,12 @@ def classifyGarbagge():
      garbaggeImageEncoded= data.get('garbaggeImage')
      garbaggeImageDecoded = base64.b64decode(garbaggeImageEncoded)
      save_base64_image(garbaggeImageDecoded,"garbaggeImage","garbaggePhoto.png")
-    # Load modele et classification: UTILISER LA FONCTION PREDICT DE functions.py
-    
-     return "Image: saved"
+     predicted_class = predict_image()
+     garbaggeClass = { 
+            "classe" : predicted_class, 
+        } 
+  
+     return jsonify(garbaggeClass)
 
 
 
