@@ -71,6 +71,10 @@ Le modèle a été entraîné sur un ensemble de données comprenant des images 
     ```bash
     pytest tests/ --disable-warnings
     ```
+
+
+## Auteurs
+- **Ndeye Fatou LAGNANE, Fatou SALL, Fama SARR** - *Initial Work* 
 ---
 
 ### Structure du Répertoire
@@ -106,6 +110,3 @@ garbage_classification/
 ├── run_garbage_classification.sh
 │
 └── README.md
-
-## Auteurs
-- **Ndeye Fatou LAGNANE, Fatou SALL, Fama SARR** - *Initial Work* 
