@@ -21,3 +21,91 @@ Ce projet implémente un modèle de classification des déchets à partir d'imag
 ## Données
 Le modèle a été entraîné sur un ensemble de données comprenant des images de déchets dans les 6 catégories mentionnées. Elles proviennent du dataset Garbagge Classification provenant de Kaggle
 
+## Prérequis
+- Python 3.10.4
+- TensorFlow
+- Keras
+- scikit-learn
+- pandas
+- numpy
+- matplotlib
+- loguru
+- Kaggle API
+
+## Installation
+1. Clonez le dépôt du projet :
+    ```bash
+    git clone https://github.com/votre_nom_d_utilisateur/garbage_classification.git
+    cd garbage_classification
+    ```
+
+2. Créez et activez un environnement virtuel :
+    ```bash
+    python -m venv original_venv
+    source original_venv/Scripts/activate  # Pour Windows
+    source original_venv/bin/activate      # Pour MacOS/Linux
+    ```
+
+3. Installez les dépendances requises :
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4. Configurez la clé API de Kaggle :
+    - Obtenez votre fichier `kaggle.json` à partir de votre compte Kaggle.
+    - Placez-le dans le répertoire `~/.kaggle/` (Linux/MacOS) ou `%USERPROFILE%\.kaggle\` (Windows).
+
+## Utilisation
+1. Téléchargez les données et préparez-les :
+    ```bash
+    python src/make_dataset.py
+    ```
+
+2. Utilisez le script de classification des déchets pour entraîner et évaluer différents modèles :
+    ```bash
+    ./run_garbage_classification.sh
+    ```
+
+## Tests
+1. Pour exécuter les tests, utilisez `pytest` :
+    ```bash
+    pytest tests/ --disable-warnings
+    ```
+---
+
+### Structure du Répertoire
+
+```plaintext
+garbage_classification/
+├── API/
+│   ├── app.py
+│   ├── functions.py
+│   ├── best_model.py
+│
+├── dashboard/
+│
+├── src/
+│   ├── make_dataset.py
+│   ├── utils.py
+│   └── trainer.py
+│
+├── tests/
+│   ├── conftest.py
+│   ├── test_dataset.py
+│   └── test_trainer.py
+│
+├── notebooks/
+│   ├── data/
+│   ├── data_split/
+│   └── garbage/
+│
+├── Dockerfile/
+│
+├── requirements.txt
+│
+├── run_garbage_classification.sh
+│
+└── README.md
+
+## Auteurs
+- **Ndeye Fatou LAGNANE, Fatou SALL, Fama SARR** - *Initial Work* 
